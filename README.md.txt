@@ -8,4 +8,5 @@
 2. Импортируйте environment: `environments/my-environment.postman_environment.json`
 
 ## Запуск тестов
-Используйте Postman Runner или Newman для выполнения тестов.
+Используйте Newman для выполнения тестов.
+newman run "collections\Maxim_Trello.postman_collection.json" -e "environments\Trello_Environment.postman_environment.json"
