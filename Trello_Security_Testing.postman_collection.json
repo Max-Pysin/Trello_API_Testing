@@ -1,0 +1,1014 @@
+{
+	"info": {
+		"_postman_id": "5db5302a-5de6-4cb1-a64e-b8aeb272fb4f",
+		"name": "Trello_Security_Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47017123",
+		"_collection_link": "https://orbital-module-candidate-57028558-8871385.postman.co/workspace/BOT-Maxsimus.04's-Workspace~3c06d7e5-a517-47fe-8ac2-d9d91a465eb1/collection/47017123-5db5302a-5de6-4cb1-a64e-b8aeb272fb4f?action=share&source=collection_link&creator=47017123"
+	},
+	"item": [
+		{
+			"name": "No_Token",
+			"item": [
+				{
+					"name": "Boards",
+					"item": [
+						{
+							"name": "Create a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "name",
+										"value": "Maxim_Test_Board",
+										"type": "text"
+									},
+									{
+										"key": "key",
+										"value": "e4e7e57cc2490d73b76765eb7468c712",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "ATTAf798127fa8c7bd16afdd77209c248b432b278844b64e898dab9a691e2a548d39C255AAEF",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}boards/?name={{board_name}}&key={{key}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{board_name}}"
+										},
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?key={{key}}&fields=id,name,closed,idOrganization,url",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,closed,idOrganization,url"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?key={{key}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?key={{key}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Members",
+					"item": [
+						{
+							"name": "Get a Member Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}?key={{key}}",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Boards that Member belongs to Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}/boards?key={{key}}",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}",
+										"boards"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}"
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "No_API_Key",
+			"item": [
+				{
+					"name": "Boards",
+					"item": [
+						{
+							"name": "Create a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "name",
+										"value": "Maxim_Test_Board",
+										"type": "text"
+									},
+									{
+										"key": "key",
+										"value": "e4e7e57cc2490d73b76765eb7468c712",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "ATTAf798127fa8c7bd16afdd77209c248b432b278844b64e898dab9a691e2a548d39C255AAEF",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}boards/?name={{board_name}}&token={{token}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{board_name}}"
+										},
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?token={{token}}&fields=id,name,closed,idOrganization,url",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										},
+										{
+											"key": "fields",
+											"value": "id,name,closed,idOrganization,url"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?token={{token}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?token={{token}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Members",
+					"item": [
+						{
+							"name": "Get a Member Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}?token={{token}}",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Boards that Member belongs to Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"invalid key\");\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}/boards?token={{token}}",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}",
+										"boards"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "No_Token/API_Key",
+			"item": [
+				{
+					"name": "Boards",
+					"item": [
+						{
+							"name": "Create a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "name",
+										"value": "Maxim_Test_Board",
+										"type": "text"
+									},
+									{
+										"key": "key",
+										"value": "e4e7e57cc2490d73b76765eb7468c712",
+										"type": "text"
+									},
+									{
+										"key": "token",
+										"value": "ATTAf798127fa8c7bd16afdd77209c248b432b278844b64e898dab9a691e2a548d39C255AAEF",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}boards/?name={{board_name}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										""
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{board_name}}"
+										},
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}?fields=id,name,closed,idOrganization,url",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										},
+										{
+											"key": "fields",
+											"value": "id,name,closed,idOrganization,url"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a Board Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}boards/{{board_id}}",
+									"host": [
+										"{{base_url}}boards"
+									],
+									"path": [
+										"{{board_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Members",
+					"item": [
+						{
+							"name": "Get a Member Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Boards that Member belongs to Copy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 401\", function () {\r",
+											"    pm.response.to.have.status(401);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response body contains expected text\", function () {\r",
+											"    const responseText = pm.response.text();\r",
+											"    pm.expect(responseText).to.include(\"missing scopes\");\r",
+											"});"
+										],
+										"type": "text/javascript",
+										"packages": {},
+										"requests": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}members/{{Member_id}}/boards",
+									"host": [
+										"{{base_url}}members"
+									],
+									"path": [
+										"{{Member_id}}",
+										"boards"
+									],
+									"query": [
+										{
+											"key": "key",
+											"value": "{{key}}",
+											"disabled": true
+										},
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
