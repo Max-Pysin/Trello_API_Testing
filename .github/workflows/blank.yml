@@ -5,20 +5,29 @@ name: CI
 on: 
     schedule:
         - cron: "45 15 * * 1-5"
+         
+    workflow_dispatch:      
           
 jobs:
  
   build:
   
     runs-on: ubuntu-latest
-
+a
     steps:
-      
-      - uses: actions/checkout@v4
+    
+      - name: Получи код из уд. репозитория
+        uses: actions/checkout@v6
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Установка Node.js
+        uses: actions/setup-node@v6
 
-      - name: Run a multi-line script
-        run: |
+      - name: Установка Newman
+        run: npm instal -g newman
+        
+      - name: Установка HTML Extra Reporter
+        run: npm install -g newman-reporter-htmlextra
+        
+      - name: Запуск тестов с формированием htmlextra-отчета
+        run: newman run Maxim_Trello.postman_collection.json -e Trello_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export test-results/html-report.html
   
