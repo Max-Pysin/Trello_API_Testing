@@ -1,5 +1,3 @@
-
-
 name: CI
 
 on: 
@@ -17,17 +15,35 @@ jobs:
     steps:
     
       - name: Получи код из уд. репозитория
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4  
 
       - name: Установка Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4 
+        with:
+          node-version: '18'  
 
-      - name: Установка Newman
-        run: npm instal -g newman
+      - name: Установка Newman, HTML Extra Reporter, JSON Reporter
+        run: | 
+            npm install -g newman 
+            npm install -g newman-reporter-htmlextra 
+            npm install -g newman-reporter-json 
         
-      - name: Установка HTML Extra Reporter
-        run: npm install -g newman-reporter-htmlextra
+      - name: Запуск тестов с формированием отчетов
+        run: |
+          newman run Maxim_Trello.postman_collection.json \
+            -e Trello_Environment.postman_environment.json \
+            -r htmlextra,json \
+            --reporter-htmlextra-export test-results/html-report.html \
+            --reporter-json-export test-results/json-report.json
         
-      - name: Запуск тестов с формированием htmlextra-отчета
-        run: newman run Maxim_Trello.postman_collection.json -e Trello_Environment.postman_environment.json -r htmlextra --reporter-htmlextra-export test-results/html-report.html
-  
+      - name: Загрузка HTML отчета как артефакт
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-test-report
+          path: test-results/html-report.html
+          
+      - name: Загрузка JSON отчета как артефакт
+        uses: actions/upload-artifact@v4
+        with:
+          name: json-test-report
+          path: test-results/json-report.json
