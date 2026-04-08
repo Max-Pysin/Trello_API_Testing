@@ -29,9 +29,16 @@ jobs:
             npm install -g newman-reporter-json 
         
       - name: Запуск тестов с формированием отчетов
+        env:
+            API_KEY: ${{ secrets.API_KEY }}
+            API_TOKEN: ${{ secrets.API_TOKEN }}
+            BASE_URL: ${{ secrets.BASE_URL }}
         run: |
           newman run Maxim_Trello.postman_collection.json \
             -e Trello_Environment.postman_environment.json \
+            --env-var "key=${ API_KEY }" \
+            --env-var "token=${ API_TOKEN }" \
+            --env-var "base_url=${ BASE_URL }" \
             -r htmlextra,json \
             --reporter-htmlextra-export test-results/html-report.html \
             --reporter-json-export test-results/json-report.json
