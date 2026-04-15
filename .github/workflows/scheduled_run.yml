@@ -54,3 +54,16 @@ jobs:
         with:
           name: json-test-report
           path: test-results/json-report.json
+          
+      - name: Отправка HTML-отчёта на Яндекс.Почту
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.yandex.ru
+          server_port: 465
+          secure: true
+          username: ${{ secrets.YANDEX_EMAIL }}
+          password: ${{ secrets.YANDEX_APP_PASSWORD }}
+          subject: "[GitHub Actions] Отчёт о тестировании Trello API"
+          to: ${{ secrets.RECIPIENT_EMAIL }}
+          from: GitHub Actions <${{ secrets.YANDEX_EMAIL }}>
+          html_body: file://test-results/html-report.html
