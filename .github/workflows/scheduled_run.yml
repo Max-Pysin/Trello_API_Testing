@@ -13,7 +13,16 @@ on:
                 type: choice    
                 options:
                     - windows   
-                    - ubuntu               
+                    - ubuntu    
+            environment:
+                description: 'Выберите окружение для тестирования'
+                required: true
+                default: 'Test'
+                type: choice
+                options:
+                    - Test
+                    - Prod
+                            
 jobs:
   build:
     runs-on: ${{ inputs.os == 'windows' && 'windows-latest' || 'ubuntu-latest' }}
@@ -41,7 +50,7 @@ jobs:
             BASE_URL: ${{ secrets.BASE_URL }}
         run: |
           newman run Maxim_Trello.postman_collection.json \
-            -e Trello_Environment.postman_environment.json \
+            -e Test_Trello_Environment.postman_environment.json \
             --env-var "key=${API_KEY}" \
             --env-var "token=${API_TOKEN}" \
             --env-var "base_url=${BASE_URL}" \
